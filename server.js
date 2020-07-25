@@ -16,7 +16,7 @@ app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 })
 
-// returning all notes saved in the json file ------ instead of the array, how do I save notes into the db.json and how do I reference the file?
+// returning all notes saved in the json file
 app.get("/api/notes", (req, res) => {
     res.json(db);
 })
