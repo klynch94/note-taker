@@ -21,6 +21,7 @@ app.get("/api/notes", (req, res) => {
     res.json(db);
 })
 
+// posing a note to the server after it has been created
 app.post("/api/notes", (req, res) => {
     const newNote = req.body;
     newNote.id = idNum++;
@@ -29,6 +30,7 @@ app.post("/api/notes", (req, res) => {
     res.json(db);
 })
 
+// deleting a note that is already created via the note ID
 app.delete("/api/notes/:id", (req, res) => {
     const id = req.params.id;
     for (let i=0; i<db.length; i++) {
@@ -40,10 +42,12 @@ app.delete("/api/notes/:id", (req, res) => {
     res.json(db);
 })
 
+// catch all to bring user back to the homepage
 app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 })
 
+// server is listening
 app.listen(PORT, () => {
     console.log(`Server is listening at PORT: ${PORT}`);
 })
